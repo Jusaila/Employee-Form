@@ -1,3 +1,9 @@
+Employee_List Page
+-------------------
+![employeelist](https://github.com/Jusaila/Employee-Form/assets/100611092/376b37e7-c925-4cd1-b721-ca5faf483d8e)
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
