@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Models\employee;
 use GrahamCampbell\ResultType\Success;
@@ -13,14 +14,18 @@ class FormController extends Controller
 {
     public function index()
     {
-        $employees = employee::orderBy('created_at','DESC')->get();
+        $employees = employee::JOIN('departments','employees.department_id','departments.id')
+        ->select('employees.*','departments.name as department_name')
+        -> orderBy('employees.created_at','DESC')->get();
         // dd($employees);
         return view('employee-list')->with(compact('employees'));
     }
 
     public function create(){
 
-        return view('index');
+        $departments = Department::get();
+        //dd($departments);
+        return view('index')->with(compact('departments'));
     }
 
     public function store(Request $request)
@@ -114,7 +119,8 @@ class FormController extends Controller
 
         public function edit($id){
             $data = employee::find($id);
-            return view('employee-edit')->with(compact('data'));
+            $departments = Department::get();
+            return view('employee-edit')->with(compact('data','departments'));
         }
 //update
 
@@ -180,8 +186,9 @@ class FormController extends Controller
                     return redirect('/')
                         ->with('error', 'Something went wrong.');
                 }
+        }
 
-
-
+        public function test(){
+            return view('test');
         }
     }

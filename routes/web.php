@@ -26,3 +26,5 @@ Route::post('/delete', [FormController::class, 'delete'])->name('delete');
 Route::get('/edit/{id}', [FormController::class, 'edit'])->name('edit');
 
 Route::post('/update', [FormController::class, 'update'])->name('update');
+
+Route::get('/test', [FormController::class, 'test'])->name('test');

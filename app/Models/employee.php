@@ -10,13 +10,13 @@ class employee extends Model
     use HasFactory;
 
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'phone_no', 'dob', 'designation','image'
+        'first_name', 'last_name', 'email', 'phone_no', 'dob', 'designation','image','department_id'
 
     ];
 
 //static to call to controller
     public static function employeeSave($input){
-        //dd($input['first_name']);
+        //dd($input);
 
         $createEmployee = employee::create([
             'first_name' => $input['first_name'],
@@ -25,6 +25,8 @@ class employee extends Model
             'phone_no' => $input['phone_no'],
             'dob' => $input['dob'],
             'designation' => $input['designation'],
+            'department_id' => $input['department_id'],
+
             'image' => $input['image_path']
         ]);
         if($createEmployee){
@@ -36,7 +38,7 @@ class employee extends Model
     }
 
     public static function employeeUpdate($input){
-        //dd($input['first_name']);
+        // dd($input);
 
         $updateEmployee = employee::where('id',$input['id'])->update([
             'first_name' => $input['first_name'],
@@ -45,6 +47,7 @@ class employee extends Model
             'phone_no' => $input['phone_no'],
             'dob' => $input['dob'],
             'designation' => $input['designation'],
+            'department_id' => $input['department_id'],
             'image' => $input['image_path']
         ]);
         if($updateEmployee){

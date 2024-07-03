@@ -63,6 +63,8 @@ tr:nth-child(even) {
     <th>Phone No</th>
     <th>DOB</th>
     <th>Designation</th>
+    <th>Department</th>
+
     <th>Image</th>
     <th>Delete</th>
     <th>Edit</th>
@@ -78,6 +80,8 @@ tr:nth-child(even) {
     <td>{{$employee->phone_no }}</td>
     <td>{{date('d-m-Y', strtotime($employee->dob ))}}</td>
     <td>{{$employee->designation }}</td>
+    <td>{{$employee->department_name }}</td>
+
     <td><img style="width: 50px;height:50px;" src="{{ $employee->image }}"></td>
     <td>
         <form method="POST" action="{{ route('delete') }}">
@@ -87,9 +91,8 @@ tr:nth-child(even) {
         </form>
     </td>
     <td>
-        <a href="{{ url('edit/'.$employee->id) }}" ><button>Edit</button></a>
+        <a href="{{ url('edit/'.$employee->id) }}" ><button class="btn btn-primary">Edit</button></a>
     </td>
-
   </tr>
   @endforeach
 

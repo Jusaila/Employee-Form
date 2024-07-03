@@ -108,6 +108,20 @@
         </div>
 
         <div class="form-group col-md-6">
+            <label for="departments">Departments</label>
+            <select class="form-control" name="department_id" >
+                <option value="">Choose..</option>
+                @foreach($departments as $department)
+                <option value="{{ $department->id }}" @if($department->id == $data->department_id) selected @endif>{{ $department->name }}</option>
+                @endforeach
+            </select>
+            @error('designation')
+            <span style="color: red;">{{ $message }}</span>
+            @enderror
+        </div>
+
+
+        <div class="form-group col-md-6">
             <label for="image">Image</label>
             <input type="file" class="form-control" id="image" value="{{ $data->image }}" name="image">
             <img style="width: 50px;height:50px;" src="{{ $data->image }}">

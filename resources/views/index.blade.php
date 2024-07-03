@@ -89,6 +89,21 @@
         </div>
 
         <div class="form-group col-md-6">
+            <label for="departments">Departments</label>
+            <select class="form-control" name="department_id" >
+                <option value="">Choose..</option>
+                @foreach($departments as $department)
+                <option value="{{ $department->id }}" selected>{{ $department->name }}</option>
+                @endforeach
+            </select>
+            @error('designation')
+            <span style="color: red;">{{ $message }}</span>
+            @enderror
+        </div>
+
+
+
+        <div class="form-group col-md-6">
             <label for="designation">Designation</label>
             <select class="form-control" name="designation" >
                 <option value="">Choose...</option>
